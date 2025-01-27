@@ -1,0 +1,20 @@
+.App {
+  display: flex; /* Flexbox layout to position Sidebar and InfiniteCanvas side by side */
+  flex-direction: row; /* Horizontal layout */
+  width: 100%;
+  height: 100vh; /* Full viewport height */
+  overflow: hidden; /* Prevent overflowing content */
+}
+
+.Sidebar {
+  width: 12%; /* Fixed width for Sidebar */
+  height: 100%; /* Full viewport height */
+  background-color: rgb(24, 24, 24);
+  color: white;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  position: relative; /* Ensures Sidebar remains in layout */
+  z-index: 1; /* Makes Sidebar stay on top of other elements if necessary */
+}

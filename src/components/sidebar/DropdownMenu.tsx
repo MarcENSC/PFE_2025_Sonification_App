@@ -1,28 +1,49 @@
-'use client'
-import React, { useState } from 'react';
-import styles from '../../styles/DropdownMenu.module.css';
+import React from 'react';
+import ChartBarIcon from '@atlaskit/icon/core/chart-bar';
+import PulseIcon from '@atlaskit/icon/core/pulse';
+import DataFlowIcon from '@atlaskit/icon/core/data-flow';
+import AngleBracketsIcon from '@atlaskit/icon/core/angle-brackets';
+import DropdownMenu, { DropdownItem, DropdownItemGroup } from '@atlaskit/dropdown-menu';
 
-const DropdownMenu = () => {
-  const [isOpen, setIsOpen] = useState(false);
+interface DropdownItemDescriptionExampleProps {
+  onSelectCategory: (category: string) => void;
+}
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
-
+const DropdownItemDescriptionExample: React.FC<DropdownItemDescriptionExampleProps> = ({ onSelectCategory }) => {
   return (
-    <div className={styles.dropdown}>
-      <button onClick={toggleMenu} className={styles.dropdownButton}>
-        Outils
-      </button>
-      {isOpen && (
-        <div className={styles.dropdownContent}>
-          <a href="#">Option 1</a>
-          <a href="#">Option 2</a>
-          <a href="#">Option 3</a>
-        </div>
-      )}
-    </div>
+    <DropdownMenu trigger="Components" shouldRenderToParent>
+      <DropdownItemGroup>
+        <DropdownItem
+          elemBefore={<DataFlowIcon label="Data Flow Icon" />}
+          description="Structuration tools"
+          onClick={() => onSelectCategory('Structure')}
+        >
+          Structure
+        </DropdownItem>
+        <DropdownItem
+          elemBefore={<ChartBarIcon label="Chart bar icon" />}
+          description="Analysis tools"
+          onClick={() => onSelectCategory('Analyse')}
+        >
+          Analyse
+        </DropdownItem>
+        <DropdownItem
+          elemBefore={<AngleBracketsIcon label="Angle Brackets Icon" />}
+          description="Javascripts scripts"
+          onClick={() => onSelectCategory('Scripts')}
+        >
+          Scripts
+        </DropdownItem>
+        <DropdownItem
+          elemBefore={<PulseIcon label="Audio Icon" />}
+          description="Audios tools"
+          onClick={() => onSelectCategory('Audio')}
+        >
+          Audio
+        </DropdownItem>
+      </DropdownItemGroup>
+    </DropdownMenu>
   );
 };
 
-export default DropdownMenu;
+export default DropdownItemDescriptionExample;

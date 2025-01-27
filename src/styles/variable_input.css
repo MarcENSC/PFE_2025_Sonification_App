@@ -1,0 +1,38 @@
+/* Supprimer les flèches dans l'input de type number */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Pour Firefox */
+input[type="number"] {
+  appearance: textfield;
+}
+
+/* Styles pour le conteneur des inputs */
+.variables-input {
+   display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.variables-input label {
+  display: block;
+  margin-top:2%;
+  color: white;
+}
+
+.input-container {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.input-container input {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100px;
+  background-color: rgb(24, 24, 24);
+  color: white;
+}
