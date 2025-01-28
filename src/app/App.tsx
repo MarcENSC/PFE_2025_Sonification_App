@@ -5,7 +5,7 @@ import '../styles/App.css';
 import DropdownItemDescriptionExample from '@/components/sidebar/DropdownMenu';
 import InfiniteCanvas from '@/components/Canva';
 import ProjectMenu from '@/components/sidebar/Menu';
-import Drawer from '@/components/sidebar/Tool_drawer/drawer';
+import Drawer from '@/components/Tool_drawer/drawer';
 
 function App() {
   const [selectedCategory, setSelectedCategory] = useState<string>('');

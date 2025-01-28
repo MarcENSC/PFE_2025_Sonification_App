@@ -58,3 +58,11 @@
   margin-right: 0;
   
 }
+.drawer-body {
+  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  overflow-y: auto;
+  height: calc(100% - 100px);
+}
