@@ -67,7 +67,7 @@ const projects: Project[] = [
 ];
 
 const ProjectMenu: React.FC<ProjectMenuProps> = ({ selectedCategory }) => {
-  // Si aucune catégorie n'est sélectionnée, afficher un message par défaut
+
   if (!selectedCategory) {
     return (
       <div className="project-menu">
@@ -76,7 +76,7 @@ const ProjectMenu: React.FC<ProjectMenuProps> = ({ selectedCategory }) => {
     );
   }
 
-  // Filtrer les projets en fonction de la catégorie sélectionnée
+
   const filteredProjects = projects.filter((project) => project.category === selectedCategory);
 
   return (

@@ -12,7 +12,7 @@ function Control({ onChangeFrequency, frequency }: ControlProps) {
   useEffect(() => {
     const slider = document.querySelector('.slider') as HTMLElement;
     if (slider) {
-      const percentage = (frequency - 20) / (20000 - 20) * 100; 
+      const percentage = (frequency - 20) / (500 - 20) * 100; 
       slider.style.background = `linear-gradient(to right, rgb(255, 255, 255) 0%, rgb(255, 255, 255) ${percentage}%, rgb(68,68,68) ${percentage}%, rgb(68,68,68) 100%)`;
     }
   }, [frequency]);

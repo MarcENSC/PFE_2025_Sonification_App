@@ -44,7 +44,7 @@
   
  
   
-  /* Style pour le thumb (le curseur) */
+
   .slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
