@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import audioEngine from '../Sound/audioEngine'; // Central audio engine
+import audioEngine from '../Sound/audioEngine'; 
 
 interface SineWaveControlProps {
   id: string;
-  oscillator: OscillatorNode; // Pass the created oscillator
+  oscillator: OscillatorNode; 
 }
 
 const SineWaveControl: React.FC<SineWaveControlProps> = ({ id, oscillator }) => {
-  const [frequency, setFrequency] = useState(440); // Default frequency 440Hz (A4 note)
+  const [frequency, setFrequency] = useState(440); 
 
-  // Update the frequency of the oscillator whenever the slider changes
+ 
   useEffect(() => {
     audioEngine.setFrequency(oscillator, frequency);
   }, [frequency, oscillator]);

@@ -2,7 +2,7 @@ import '../../styles/canva_component.css';
 import React, { useState, useEffect } from 'react';
 import Control from './variable_control'; // Import Control component
 import AddIcon from '@atlaskit/icon/core/add';
-import audioEngine from '../Sound/audioEngine'; // Import the AudioEngine
+
 import * as Tone from 'tone';
 
 interface BoxComponentProps {
@@ -10,8 +10,8 @@ interface BoxComponentProps {
   icon?: string;
   description?: string;
   id?: string;
-  synth: Tone.Synth;  // Receive the Tone.Synth oscillator
-  onAddClick?: () => void; // New prop for handling "Add" icon click
+  synth: Tone.Synth; 
+  onAddClick?: () => void; 
 }
 
 const BoxInCanvas: React.FC<BoxComponentProps> = ({
@@ -35,7 +35,7 @@ const BoxInCanvas: React.FC<BoxComponentProps> = ({
       <div className="box-header">
         <div className="box-title">
           <p>{icon}</p>
-          <p className="description">{description}</p>
+          <p className="description">{title}</p>
         </div>
         <div className="box-add-icon" onClick={onAddClick}> {/* Handle Add Icon click */}
           <AddIcon label="add-icon" />

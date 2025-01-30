@@ -7,10 +7,9 @@ import PlayPauseControl from "./Sound/Sound_control";
 const InfiniteCanvas = ({ onAddClick }: { onAddClick: () => void }) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // State to manage the canvas zoom and position
   const [transform, setTransform] = useState({ scale: 1, translateX: 0, translateY: 0 });
 
-  // State for managing the items dropped on the canvas, including their Tone.Synth
+
   const [droppedItems, setDroppedItems] = useState<
     {
       id: string;
@@ -20,40 +19,47 @@ const InfiniteCanvas = ({ onAddClick }: { onAddClick: () => void }) => {
       icon: string;
       description: string;
       synth: Tone.Synth;
-      isPlaying: boolean; // Whether the component is playing
+      isPlaying: boolean;
     }[]
   >([]);
 
-  // Play/pause state for all sounds
+ 
   const [isPlaying, setIsPlaying] = useState(false);
 
-  // Start Tone.js audio context
+ 
   useEffect(() => {
-    const startAudio = () => {
-      Tone.start();
-      console.log("Audio started");
+    const startAudio = async () => {
+      await Tone.start();
+      console.log("Audio context started");
     };
     window.addEventListener("click", startAudio);
     return () => window.removeEventListener("click", startAudio);
   }, []);
 
-  // Handle play/pause toggle
-  const handleTogglePlayPause = () => {
-    setIsPlaying((prev) => !prev);
-    if (isPlaying) {
-      // Stop all sounds if paused
-      droppedItems.forEach((item) => {
-        item.synth.triggerRelease();
+  
+  const handleTogglePlayPause = async () => {
+    const newPlayingState = !isPlaying;
+    
+
+    await Tone.start();
+    
+    if (newPlayingState) {
+      const now = Tone.now();
+      droppedItems.forEach((item, index) => {
+
+        const startTime = now + (index * 0.01);
+        item.synth.triggerAttack("C4", startTime);
       });
     } else {
-      // Start all sounds if playing
-      droppedItems.forEach((item) => {
-        item.synth.triggerAttack("C4"); // Or choose any starting note
+      droppedItems.forEach(item => {
+        item.synth.triggerRelease("+0.01");
       });
     }
+    
+    setIsPlaying(newPlayingState);
   };
 
-  // Handle dropping an item onto the canvas
+  
   const [{ isOver }, drop] = useDrop(() => ({
     accept: "BOX",
     drop: (item: any, monitor) => {
@@ -61,8 +67,19 @@ const InfiniteCanvas = ({ onAddClick }: { onAddClick: () => void }) => {
       const dropX = ((monitor.getClientOffset()!.x - rect.left) / rect.width) * 100;
       const dropY = ((monitor.getClientOffset()!.y - rect.top) / rect.height) * 100;
 
-      const synth = new Tone.Synth().toDestination();
-      synth.triggerAttack("C4"); // Start sound immediately after drop
+      
+      const synth = new Tone.Synth({
+        oscillator: {
+          type: "sine"
+        },
+        envelope: {
+          attack: 0.01,
+          decay: 0.1,
+          sustain: 0.5,
+          release: 0.1
+        }
+      }).toDestination();
+      
       setDroppedItems((prev) => [
         ...prev,
         {
@@ -73,7 +90,7 @@ const InfiniteCanvas = ({ onAddClick }: { onAddClick: () => void }) => {
           icon: item.icon,
           description: item.description,
           synth,
-          isPlaying: isPlaying, // Set the initial playing state
+          isPlaying: false,
         },
       ]);
       return { name: "InfiniteCanvas" };
@@ -83,12 +100,23 @@ const InfiniteCanvas = ({ onAddClick }: { onAddClick: () => void }) => {
     }),
   }));
 
-  // Handle zooming with the mouse wheel
+
+  useEffect(() => {
+    return () => {
+      droppedItems.forEach((item) => {
+        item.synth.dispose();
+      });
+    };
+  }, [droppedItems]);
+
+  
+  
+  
   useEffect(() => {
     const handleWheel = (e: WheelEvent) => {
       if (e.ctrlKey) {
-        e.preventDefault(); // Prevent default zoom behavior
-        const scaleFactor = e.deltaY < 0 ? 1.1 : 0.9; // Zoom in or out
+        e.preventDefault();
+        const scaleFactor = e.deltaY < 0 ? 1.1 : 0.9;
         setTransform((prev) => ({
           ...prev,
           scale: prev.scale * scaleFactor,
@@ -101,7 +129,7 @@ const InfiniteCanvas = ({ onAddClick }: { onAddClick: () => void }) => {
     return () => container?.removeEventListener("wheel", handleWheel);
   }, []);
 
-  // Handle panning (click and drag to move the canvas)
+  
   const [isDraggingCanvas, setIsDraggingCanvas] = useState(false);
   const [startDragPos, setStartDragPos] = useState({ x: 0, y: 0 });
 
@@ -127,7 +155,7 @@ const InfiniteCanvas = ({ onAddClick }: { onAddClick: () => void }) => {
     setIsDraggingCanvas(false);
   };
 
-  // Handle moving items on the canvas
+ 
   const moveItem = (id: string, newX: number, newY: number) => {
     setDroppedItems((prev) =>
       prev.map((item) =>
@@ -162,7 +190,6 @@ const InfiniteCanvas = ({ onAddClick }: { onAddClick: () => void }) => {
       onMouseUp={handleMouseUp}
       onMouseLeave={handleMouseUp}
     >
-      {/* Play/Pause Control Button */}
       <PlayPauseControl isPlaying={isPlaying} onToggle={handleTogglePlayPause} />
 
       <div
@@ -192,8 +219,8 @@ const InfiniteCanvas = ({ onAddClick }: { onAddClick: () => void }) => {
               id={item.id}
               synth={item.synth}
               onAddClick={onAddClick}
-              isPlaying={isPlaying} // Pass play state to child component
-              onMove={moveItem} // Pass the moveItem function to allow dragging
+              isPlaying={isPlaying}
+              onMove={moveItem}
             />
           </div>
         ))}

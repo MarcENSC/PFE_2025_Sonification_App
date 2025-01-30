@@ -1,9 +1,9 @@
 import React from 'react';
-import '../../styles/AddVariablesWidget.css'; // Importez le fichier CSS
+import '../../styles/AddVariablesWidget.css'; 
 import AddIcon from '@atlaskit/icon/core/add';
 
 interface AddVariablesWidgetProps {
-  onClick: () => void; // Fonction à exécuter lors du clic
+  onClick: () => void; 
 }
 
 const AddVariablesWidget: React.FC<AddVariablesWidgetProps> = ({ onClick }) => {

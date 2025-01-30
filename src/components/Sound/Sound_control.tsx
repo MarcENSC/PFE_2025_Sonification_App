@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { Button } from '@atlaskit/button'; // You can use any button component or create your own
+import React from 'react';
 
 interface PlayPauseControlProps {
   isPlaying: boolean;

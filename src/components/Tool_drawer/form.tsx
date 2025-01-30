@@ -1,24 +1,23 @@
 import React, { useState } from 'react';
-import '../../styles/VariableForm.css'; // Importez le fichier CSS
+import '../../styles/VariableForm.css'; 
 
 interface VariableFormProps {
   onAddVariable: (name: string, value: number) => void;
 }
 
 const VariableForm: React.FC<VariableFormProps> = ({ onAddVariable }) => {
-  // Liste de noms de variables préexistants
+  
   const predefinedVariableNames = ['Variable1', 'Variable2', 'Variable3', 'Variable4'];
 
-  // État pour stocker les variables et leurs valeurs
-  const [selectedVariableName, setSelectedVariableName] = useState<string>(predefinedVariableNames[0]); // Par défaut, première valeur du tableau
+  const [selectedVariableName, setSelectedVariableName] = useState<string>(predefinedVariableNames[0]); 
   const [newVariableValue, setNewVariableValue] = useState<number>(0);
 
-  // Fonction pour ajouter une nouvelle variable
+  
   const handleAddVariable = () => {
-    // Ajouter la nouvelle variable
+   
     onAddVariable(selectedVariableName, newVariableValue);
 
-    // Réinitialiser la valeur
+
     setNewVariableValue(0);
   };
 
@@ -45,7 +44,7 @@ const VariableForm: React.FC<VariableFormProps> = ({ onAddVariable }) => {
           id="variable-value"
           value={newVariableValue}
           onChange={(e) => setNewVariableValue(parseFloat(e.target.value))}
-          step="any" // Permet les nombres flottants
+          step="any" 
         />
       </div>
       <button className="add-button" onClick={handleAddVariable}>

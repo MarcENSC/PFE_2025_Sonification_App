@@ -16,9 +16,9 @@ const Box: React.FC<BoxProps> = ({ title, icon, description, id = 'default-box' 
     item: {
       type: 'BOX',
       id: id,
-      title: title,       // Transmettre le titre
-      icon: icon,         // Transmettre l'icône
-      description: description // Transmettre la description
+      title: title,      
+      icon: icon,       
+      description: description
     },
     collect: (monitor) => ({
       isDragging: monitor.isDragging()
@@ -44,8 +44,8 @@ const Box: React.FC<BoxProps> = ({ title, icon, description, id = 'default-box' 
         }}
       >
         <div className="box-content">
-          <p className='icon'>{icon}</p> {/* Icône */}
-          <p className='description'>{description}</p> {/* Description */}
+          <p className='icon'>{icon}</p> 
+          <p className='description'>{description}</p> 
         </div>
       </div>
     </div>

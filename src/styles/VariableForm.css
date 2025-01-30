@@ -1,4 +1,4 @@
-/* Styles pour le formulaire */
+
 .variable-form {
     display: flex;
     flex-direction: row;
@@ -50,7 +50,7 @@
     height: 30px;
     
     border: none;
-    border-radius: 50%; /* Bouton en forme de bulle */
+    border-radius: 50%; 
     background-color: #007bff;
     color: white;
     font-size: 12px;

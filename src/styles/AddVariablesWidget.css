@@ -1,10 +1,10 @@
-/* Styles pour le widget */
+
 .add-variables-widget {
     align-items: center;
-    border-top: 2px solid #ffffff6e; /* Bordure uniquement en haut */
-    background-color: transparent; /* Fond transparent */
-    padding: 10px; /* Espacement intérieur */
-    display:flex; /* Pour que le widget s'adapte à la taille du texte */
+    border-top: 2px solid #ffffff6e; 
+    background-color: transparent; 
+    padding: 10px;
+    display:flex;
     color: rgba(255, 255, 255, 0.39);
     gap: 1rem;
     align-items: center;
@@ -22,7 +22,7 @@
   
   .add-variables-text {
     text-align: ;
-    font-style: italic; /* Texte en italique */
-    color: #ffffffc7; /* Couleur du texte */
-    font-size: 1.2rem; /* Taille du texte */
+    font-style: italic; 
+    color: #ffffffc7;
+    font-size: 1.2rem; 
   }

@@ -76,10 +76,10 @@
     color: #333;
   }
   .Text {
-    font-size: 79%; /* Taille de base pour les écrans moyens */
-    /* Pour un style accentué */
-    color: white; /* Assurez-vous que le texte est visible sur un fond foncé */
-    text-align: center; /* Centre le texte */
+    font-size: 79%; 
+    
+    color: white; 
+    text-align: center; 
     margin-bottom: 3px;
   }
   .volumeText{

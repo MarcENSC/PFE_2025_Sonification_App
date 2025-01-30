@@ -7,7 +7,6 @@ class AudioEngine {
       this.oscillators = new Map();
     }
   
-    // Create a sine wave oscillator and store it
     createSineWave(id: string, frequency: number): OscillatorNode {
       const oscillator = this.audioContext.createOscillator();
       oscillator.type = 'sine';
@@ -19,7 +18,7 @@ class AudioEngine {
       return oscillator;
     }
   
-    // Stop and disconnect all oscillators
+    
     stopAll() {
       this.oscillators.forEach((oscillator) => {
         oscillator.stop();
@@ -28,7 +27,7 @@ class AudioEngine {
       this.oscillators.clear();
     }
   
-    // Set the frequency of a specific oscillator
+   
     setFrequency(id: string, frequency: number) {
       const oscillator = this.oscillators.get(id);
       if (oscillator) {

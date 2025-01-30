@@ -50,6 +50,20 @@ const projects: Project[] = [
     description: 'Sin function',
     category: 'Scripts',
   },
+  {
+    id: '5',
+    name: 'Project 2',
+    icon: '👷‍♂️',
+    description: 'Structure project',
+    category: 'Structure',
+  },
+  {
+    id: '6',
+    name: 'Project 2',
+    icon: '👷‍♂️',
+    description: 'Structure project',
+    category: 'Structure',
+  },
 ];
 
 const ProjectMenu: React.FC<ProjectMenuProps> = ({ selectedCategory }) => {

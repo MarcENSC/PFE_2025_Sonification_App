@@ -2,17 +2,17 @@ import React from 'react';
 import '../../styles/variable_input.css';
 
 interface VariablesInputProps {
-  id: string; // ID de l'entrée
-  label: string; // Libellé de l'entrée
-  values: { [key: string]: number }; // Valeurs initiales
-  onChange: (newValue: number) => void; // Fonction pour notifier le parent
+  id: string; 
+  label: string; 
+  values: { [key: string]: number }; 
+  onChange: (newValue: number) => void;
 }
 
 export const VariablesInput: React.FC<VariablesInputProps> = ({ id, label, values, onChange }) => {
   const handleValueChange = (key: string, newValue: string) => {
-    const numericValue = parseFloat(newValue); // Convertir en nombre flottant
+    const numericValue = parseFloat(newValue); 
     if (!isNaN(numericValue)) {
-      onChange(numericValue); // Notifier le parent de la nouvelle valeur
+      onChange(numericValue); 
     }
   };
 
@@ -23,11 +23,11 @@ export const VariablesInput: React.FC<VariablesInputProps> = ({ id, label, value
         {Object.entries(values).map(([key, value]) => (
           <input
             key={key}
-            type="number" // Permet la saisie de nombres flottants
+            type="number" 
             id={key}
             value={value}
             onChange={(e) => handleValueChange(key, e.target.value)}
-            step="any" // Permet de saisir n'importe quel nombre flottant
+            step="any" 
           />
         ))}
       </div>

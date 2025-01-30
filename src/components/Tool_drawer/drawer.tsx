@@ -56,7 +56,7 @@ const Drawer: React.FC<DrawerProps> = ({ isOpen, onClose, titre, id }) => {
           {titre && <h2 className="drawer-titre">{titre}</h2>}
         </div>
         <div className="drawer-body">
-          {/* Afficher les VariablesInput pour chaque variable */}
+          {}
           {Object.entries(variables).map(([key, value]) => (
             <VariablesInput
               key={key}
@@ -66,9 +66,9 @@ const Drawer: React.FC<DrawerProps> = ({ isOpen, onClose, titre, id }) => {
               onChange={(newValue) => handleVariableChange(key, newValue)}
             />
           ))}
-          {/* Widget pour ajouter une nouvelle variable */}
+          {}
           <AddVariablesWidget onClick={handleAddVariableClick} />
-          {/* Afficher le formulaire si showForm est true */}
+          {}
           {showForm && <VariableForm onAddVariable={handleAddVariable} />}
         </div>
       </div>
