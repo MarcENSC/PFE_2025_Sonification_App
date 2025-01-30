@@ -67,11 +67,8 @@ yarn start
 - [Next.js](https://nextjs.org/)
 - [React](https://react.dev/)
 - [Tailwind CSS](https://tailwindcss.com/) *(optionnel)*
-- [ESLint](https://eslint.org/) & [Prettier](https://prettier.io/) *(code qualité)*
+- [ESLint](https://eslint.org/) 
 - [React-dnd](https://github.com/react-dnd/react-dnd)
 - [Atlaskit](https://atlaskit.atlassian.com/)
 - [Tone JS](https://tonejs.github.io/)
-## 📜 Licence
-
-Ce projet est sous licence **MIT**. Vous êtes libre de le modifier et de le redistribuer.
 
