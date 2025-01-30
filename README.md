@@ -1,36 +1,77 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Sonification App 
 
-## Getting Started
+Ce projet est une application frontend développée avec [Next.js](https://nextjs.org/) et gérée avec [Yarn](https://yarnpkg.com/).
 
-First, run the development server:
+## 🚀 Installation
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Assurez-vous d'avoir **Node.js** et **Yarn** installés sur votre machine.
+
+```sh
+# Clone du dépôt
+git clone https://github.com/MarcENSC/PFE_2025_Sonification_App.git
+cd PFE_2025_Sonification_App
+
+# Installation des dépendances
+yarn install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🏗 Démarrage du projet
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Lancez le serveur de développement avec :
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```sh
+yarn dev
+```
 
-## Learn More
+Le projet sera accessible sur [http://localhost:3000](http://localhost:3000).
 
-To learn more about Next.js, take a look at the following resources:
+## 📦 Build et déploiement
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Pour générer une version optimisée de l'application :
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```sh
+yarn build
+```
 
-## Deploy on Vercel
+Puis pour tester le build localement :
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```sh
+yarn start
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+
+## 📜 Scripts utiles
+
+| Commande         | Description |
+|-----------------|-------------|
+| `yarn dev`      | Démarrer le serveur en mode développement |
+| `yarn build`    | Construire l'application pour la production |
+| `yarn start`    | Lancer l'application en production |
+
+
+## 📂 Structure du projet
+
+```
+.
+├──src/
+    ├── pages/          # Pages Next.js
+    ├── components/     # Composants réutilisables
+    ├── styles/        # Fichiers CSS ou Tailwind
+    ├── public/        # Ressources statiques
+    └── next.config.js # Configuration Next.js
+```
+
+## 🛠 Technologies utilisées
+
+- [Next.js](https://nextjs.org/)
+- [React](https://react.dev/)
+- [Tailwind CSS](https://tailwindcss.com/) *(optionnel)*
+- [ESLint](https://eslint.org/) & [Prettier](https://prettier.io/) *(code qualité)*
+- [React-dnd] (https://github.com/react-dnd/react-dnd)
+- [Atlaskit]  (https://atlaskit.atlassian.com/)
+- [Tone JS]   (https://tonejs.github.io/)
+## 📜 Licence
+
+Ce projet est sous licence **MIT**. Vous êtes libre de le modifier et de le redistribuer.
+
